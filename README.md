@@ -1,4 +1,4 @@
-# secure_ai_surveillance
+# Secure_AI_Surveillance
 
 A clean, concise repository overview for the `secure_ai_surveillance` project.
 
