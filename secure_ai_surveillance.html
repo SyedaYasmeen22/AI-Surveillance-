@@ -417,6 +417,22 @@
     color: var(--ink);
   }
 
+  figure {
+    margin: 1.75rem 0;
+  }
+  figure img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
+  figure figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    text-align: center;
+  }
+
   /* TOC */
   .toc {
     background: var(--paper);
@@ -575,6 +591,11 @@
     <h3>Post-Quantum Cryptography (PQC)</h3>
     <p>The NIST PQC standardisation process (2016–2024) produced four standards. CRYSTALS-Kyber (now ML-KEM, FIPS 203) is an IND-CCA2 key encapsulation mechanism built on Module-LWE. CRYSTALS-Dilithium (now ML-DSA, FIPS 204) is a signature scheme. Both derive security from the LWE problem, first formalised by Oded Regev in 2005.</p>
 
+    <figure>
+      <img src="fig1_system_architecture.svg" alt="System architecture pipeline from camera through ResNet-50, LWE encryption, transmission, and server decryption.">
+      <figcaption>Figure 1: Secure AI-surveillance system architecture, showing camera input, ResNet-50 feature extraction, LWE encryption, transmission, and server-side processing.</figcaption>
+    </figure>
+
     <h3>Learning With Errors — Informal Overview</h3>
     <p>The LWE problem asks: given many approximate linear equations over a finite field (with small random errors), recover the hidden secret. Formally:</p>
     <div class="math">Given (A, b) where A ← Z_q^{m×n} uniformly
@@ -620,6 +641,11 @@ Distinguish (A, b) from (A, u) with u ← Z_q^m uniform.</div>
       <p style="margin-top:0.5rem;"><strong>Search-LWE:</strong> Given m samples from A<sub>s,χ</sub>, recover s.</p>
       <p><strong>Decision-LWE:</strong> Distinguish m samples from A<sub>s,χ</sub> from m uniform samples over ℤ<sub>q</sub><sup>n</sup> × ℤ<sub>q</sub>.</p>
     </div>
+
+    <figure>
+      <img src="fig3_lattice_lwe.svg" alt="Two-dimensional lattice with closest vector problem illustration and discrete Gaussian error distribution.">
+      <figcaption>Figure 3: Lattice illustration with CVP and discrete Gaussian noise, showing the geometric intuition behind LWE.</figcaption>
+    </figure>
 
     <h3>LWE Encryption Scheme Π</h3>
     <div class="def-block">
@@ -687,6 +713,11 @@ Distinguish (A, b) from (A, u) with u ← Z_q^m uniform.</div>
       <div class="pipe-arrow">→</div>
       <div class="pipe-step">Classifier<br><small style="color:#8a8780;font-size:10px;">Label output</small></div>
     </div>
+
+    <figure>
+      <img src="fig2_lwe_flow.svg" alt="LWE key generation, encryption, and decryption flow with correctness formula.">
+      <figcaption>Figure 2: LWE workflow with key generation, encryption, and decryption stages plus the correctness condition.</figcaption>
+    </figure>
 
     <h3>Security Boundary</h3>
     <p>The LWE encryption layer is the security boundary. Everything to the left (raw frames, activations) is protected inside a trusted execution environment (TEE) or trusted device. Ciphertexts cross the untrusted domain. The secret key sk never leaves the trusted enclave.</p>
@@ -839,6 +870,12 @@ Setting t = q/4:  Pr[error] ≤ 2·exp(−q²/(32mσ²))</div>
         <div class="perf-val">~2 MB</div>
       </div>
     </div>
+
+    <figure>
+      <img src="fig4_performance.svg" alt="Performance dashboard showing operation latency bars and a security versus latency scatter plot.">
+      <figcaption>Figure 4: Experimental performance summary with latency bars and security-versus-latency trade-off visualization.</figcaption>
+    </figure>
+
     <p style="font-size:0.875rem;color:var(--ink-light);">Note: The Python prototype is intentionally un-optimised. Production systems use Ring-LWE (Module-LWE) — as in Kyber — which reduces ciphertext size by 1000× and latency to sub-millisecond via NTT-based polynomial arithmetic.</p>
 
     <h3>Security–Performance Trade-off</h3>

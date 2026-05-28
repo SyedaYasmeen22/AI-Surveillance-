@@ -1,0 +1,104 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c4390a"/>
+    </marker>
+    <marker id="arrgray" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#8a8780"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="440" fill="#faf9f7"/>
+  <text x="430" y="30" text-anchor="middle" font-size="11" fill="#c4390a" letter-spacing="2">LWE ENCRYPTION &amp; DECRYPTION FLOW</text>
+  <line x1="60" y1="40" x2="800" y2="40" stroke="#e2ddd8"/>
+
+  <!-- ═══════ KEYGEN COLUMN ═══════ -->
+  <text x="155" y="62" text-anchor="middle" font-size="10" fill="#8a8780" letter-spacing="1">KEY GENERATION</text>
+
+  <rect x="55" y="72" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="155" y="89" text-anchor="middle" font-size="9" fill="#4a4845">Sample A ← Zqⁿˣᵐ (public matrix)</text>
+  <text x="155" y="104" text-anchor="middle" font-size="9" fill="#4a4845">Sample s ← χⁿ  (secret key)</text>
+
+  <rect x="55" y="126" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="155" y="143" text-anchor="middle" font-size="9" fill="#4a4845">Sample e ← χᵐ (noise vector)</text>
+  <text x="155" y="158" text-anchor="middle" font-size="9" fill="#4a4845">Compute b = As + e  mod q</text>
+
+  <line x1="155" y1="116" x2="155" y2="126" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="55" y="180" width="200" height="44" rx="3" fill="#1a1917"/>
+  <text x="155" y="198" text-anchor="middle" font-size="9" fill="#ffffff">pk = (A, b)</text>
+  <text x="155" y="213" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">Public Key  (≈2 MB)</text>
+
+  <line x1="155" y1="170" x2="155" y2="180" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="55" y="234" width="200" height="44" rx="3" fill="#c4390a"/>
+  <text x="155" y="252" text-anchor="middle" font-size="9" fill="#ffffff">sk = s</text>
+  <text x="155" y="267" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">Secret Key  (n integers mod q)</text>
+
+  <line x1="155" y1="224" x2="155" y2="234" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <!-- ═══════ ENCRYPT COLUMN ═══════ -->
+  <text x="430" y="62" text-anchor="middle" font-size="10" fill="#8a8780" letter-spacing="1">ENCRYPTION</text>
+
+  <rect x="330" y="72" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="430" y="89" text-anchor="middle" font-size="9" fill="#4a4845">Input: plaintext μ ∈ {0,1}ᵈ</text>
+  <text x="430" y="104" text-anchor="middle" font-size="9" fill="#4a4845">Sample r ← {0,1}ᵐ (randomness)</text>
+
+  <line x1="430" y1="116" x2="430" y2="126" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="330" y="126" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="430" y="143" text-anchor="middle" font-size="9" fill="#4a4845">u = Aᵀr  mod q</text>
+  <text x="430" y="158" text-anchor="middle" font-size="9" fill="#4a4845">v = bᵀr + ⌊q/2⌋·μ  mod q</text>
+
+  <line x1="430" y1="170" x2="430" y2="180" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="330" y="180" width="200" height="44" rx="3" fill="#c4390a"/>
+  <text x="430" y="198" text-anchor="middle" font-size="9" fill="#ffffff">ct = (u, v)</text>
+  <text x="430" y="213" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.75)">Ciphertext  (≈120 MB per vector)</text>
+
+  <!-- pk arrow from keygen to encrypt -->
+  <path d="M255,198 Q292,198 330,175" stroke="#8a8780" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#arrgray)"/>
+  <text x="280" y="192" font-size="8" fill="#8a8780">pk</text>
+
+  <!-- ═══════ DECRYPT COLUMN ═══════ -->
+  <text x="705" y="62" text-anchor="middle" font-size="10" fill="#8a8780" letter-spacing="1">DECRYPTION</text>
+
+  <rect x="605" y="72" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="705" y="89" text-anchor="middle" font-size="9" fill="#4a4845">Input: ct = (u, v)</text>
+  <text x="705" y="104" text-anchor="middle" font-size="9" fill="#4a4845">Receive ciphertext from channel</text>
+
+  <line x1="705" y1="116" x2="705" y2="126" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="605" y="126" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="705" y="143" text-anchor="middle" font-size="9" fill="#4a4845">w = v − sᵀu  mod q</text>
+  <text x="705" y="158" text-anchor="middle" font-size="9" fill="#4a4845">= ⌊q/2⌋·μ + eᵀr  (noise term)</text>
+
+  <line x1="705" y1="170" x2="705" y2="180" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="605" y="180" width="200" height="44" rx="3" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  <text x="705" y="198" text-anchor="middle" font-size="9" fill="#4a4845">μ̂ = 0  if |w| &lt; q/4</text>
+  <text x="705" y="213" text-anchor="middle" font-size="9" fill="#4a4845">μ̂ = 1  if |w − q/2| &lt; q/4</text>
+
+  <line x1="705" y1="224" x2="705" y2="234" stroke="#8a8780" marker-end="url(#arrgray)"/>
+
+  <rect x="605" y="234" width="200" height="44" rx="3" fill="#1a1917"/>
+  <text x="705" y="252" text-anchor="middle" font-size="9" fill="#ffffff">μ̂ = μ  (recovered plaintext)</text>
+  <text x="705" y="267" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.55)">Error Pr ≤ 2·exp(−q²/32mσ²)</text>
+
+  <!-- sk arrow from keygen to decrypt -->
+  <path d="M155,252 Q155,305 605,270" stroke="#c4390a" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="340" y="318" font-size="8" fill="#c4390a">sk (secret key — never transmitted)</text>
+
+  <!-- ct arrow from encrypt to decrypt -->
+  <path d="M530,202 Q565,202 605,115" stroke="#8a8780" stroke-width="1" fill="none" stroke-dasharray="5,3" marker-end="url(#arrgray)"/>
+  <text x="554" y="168" font-size="8" fill="#8a8780">ct</text>
+
+  <!-- ═══════ CORRECTNESS NOTE ═══════ -->
+  <rect x="55" y="340" width="750" height="78" rx="4" fill="#ffffff" stroke="#e2ddd8"/>
+  <text x="75" y="360" font-size="9" fill="#c4390a" letter-spacing="1.5">CORRECTNESS (THEOREM 5.2)</text>
+  <text x="75" y="378" font-size="9" fill="#4a4845">w = v − sᵀu = (bᵀr + ⌊q/2⌋μ) − sᵀAᵀr = (As+e)ᵀr − sᵀAᵀr + ⌊q/2⌋μ = eᵀr + ⌊q/2⌋μ</text>
+  <text x="75" y="394" font-size="9" fill="#4a4845">Noise |eᵀr| &lt; q/4  with probability  1 − 2·exp(−q²/32mσ²)  ≈  1 − 10⁻³ˣ¹⁰⁶</text>
+  <text x="75" y="410" font-size="9" fill="#8a8780">For parameters q=7681, m=1024, σ=3.19 the error probability is astronomically small — effectively zero.</text>
+
+  <text x="430" y="432" text-anchor="middle" font-size="9" fill="#8a8780">Fig. 2 — LWE key generation, encryption, and decryption operations with correctness analysis.</text>
+</svg>

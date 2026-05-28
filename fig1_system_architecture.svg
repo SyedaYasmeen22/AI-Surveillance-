@@ -1,0 +1,149 @@
+<svg viewBox="0 0 860 420" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#c4390a"/>
+    </marker>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#1a1917" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="420" fill="#faf9f7"/>
+
+  <!-- Title -->
+  <text x="430" y="32" text-anchor="middle" font-size="11" fill="#c4390a" letter-spacing="2" font-weight="500">SYSTEM ARCHITECTURE — END-TO-END PIPELINE</text>
+  <line x1="60" y1="42" x2="800" y2="42" stroke="#e2ddd8" stroke-width="1"/>
+
+  <!-- ── CAMERA NODE ── -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="70" width="120" height="90" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  </g>
+  <!-- Camera icon -->
+  <rect x="55" y="85" width="50" height="34" rx="3" fill="none" stroke="#1a1917" stroke-width="1.5"/>
+  <circle cx="80" cy="102" r="9" fill="none" stroke="#1a1917" stroke-width="1.5"/>
+  <circle cx="80" cy="102" r="4" fill="#c4390a"/>
+  <rect x="98" y="90" width="8" height="6" rx="1" fill="none" stroke="#1a1917" stroke-width="1"/>
+  <text x="90" y="138" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">CAMERA</text>
+  <text x="90" y="150" text-anchor="middle" font-size="8" fill="#4a4845">Input Frame</text>
+
+  <!-- Arrow 1 -->
+  <line x1="152" y1="115" x2="188" y2="115" stroke="#c4390a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── RESNET-50 NODE ── -->
+  <g filter="url(#shadow)">
+    <rect x="190" y="70" width="130" height="90" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  </g>
+  <!-- Neural net icon -->
+  <circle cx="225" cy="90" r="4" fill="#4a4845"/>
+  <circle cx="225" cy="105" r="4" fill="#4a4845"/>
+  <circle cx="225" cy="120" r="4" fill="#4a4845"/>
+  <circle cx="250" cy="95" r="4" fill="#4a4845"/>
+  <circle cx="250" cy="110" r="4" fill="#4a4845"/>
+  <circle cx="250" cy="125" r="4" fill="#4a4845"/>
+  <circle cx="275" cy="100" r="4" fill="#c4390a"/>
+  <circle cx="275" cy="115" r="4" fill="#c4390a"/>
+  <line x1="225" y1="90" x2="250" y2="95" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="225" y1="90" x2="250" y2="110" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="225" y1="105" x2="250" y2="95" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="225" y1="105" x2="250" y2="110" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="225" y1="120" x2="250" y2="110" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="225" y1="120" x2="250" y2="125" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="250" y1="95" x2="275" y2="100" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="250" y1="110" x2="275" y2="100" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="250" y1="110" x2="275" y2="115" stroke="#8a8780" stroke-width="0.75"/>
+  <line x1="250" y1="125" x2="275" y2="115" stroke="#8a8780" stroke-width="0.75"/>
+  <text x="255" y="148" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">RESNET-50</text>
+  <text x="255" y="159" text-anchor="middle" font-size="8" fill="#4a4845">d=2048 features</text>
+
+  <!-- Arrow 2 -->
+  <line x1="322" y1="115" x2="358" y2="115" stroke="#c4390a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── LWE ENCRYPT NODE (highlighted) ── -->
+  <g filter="url(#shadow)">
+    <rect x="360" y="58" width="140" height="114" rx="4" fill="#c4390a"/>
+  </g>
+  <!-- Lock icon -->
+  <rect x="415" y="82" width="30" height="24" rx="2" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M419,82 Q419,68 430,68 Q441,68 441,82" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="430" cy="93" r="3" fill="#ffffff"/>
+  <line x1="430" y1="96" x2="430" y2="100" stroke="#ffffff" stroke-width="1.5"/>
+  <text x="430" y="122" text-anchor="middle" font-size="9" fill="#ffffff" letter-spacing="1">LWE ENCRYPT</text>
+  <text x="430" y="134" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.75)">ct = (Aᵀr, bᵀr+⌊q/2⌋μ)</text>
+  <text x="430" y="162" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.9)">n=256, q=7681, σ=3.19</text>
+
+  <!-- Arrow 3 -->
+  <line x1="502" y1="115" x2="538" y2="115" stroke="#c4390a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── ENCRYPTED TRANSMISSION ── -->
+  <g filter="url(#shadow)">
+    <rect x="540" y="70" width="130" height="90" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  </g>
+  <!-- Cloud/network icon -->
+  <path d="M575,108 Q572,96 582,92 Q586,84 596,86 Q600,78 610,80 Q622,76 626,88 Q636,88 636,98 Q636,108 626,108 Z" fill="none" stroke="#4a4845" stroke-width="1.5"/>
+  <line x1="590" y1="108" x2="590" y2="118" stroke="#4a4845" stroke-width="1"/>
+  <line x1="600" y1="108" x2="600" y2="122" stroke="#4a4845" stroke-width="1"/>
+  <line x1="610" y1="108" x2="610" y2="118" stroke="#4a4845" stroke-width="1"/>
+  <text x="605" y="142" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">ENCRYPTED</text>
+  <text x="605" y="153" text-anchor="middle" font-size="8" fill="#4a4845">TLS 1.3 Channel</text>
+
+  <!-- Arrow 4 -->
+  <line x1="672" y1="115" x2="708" y2="115" stroke="#c4390a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── SERVER / CLASSIFIER ── -->
+  <g filter="url(#shadow)">
+    <rect x="710" y="70" width="120" height="90" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1.5"/>
+  </g>
+  <!-- Server icon -->
+  <rect x="735" y="82" width="50" height="12" rx="2" fill="none" stroke="#1a1917" stroke-width="1.5"/>
+  <circle cx="742" cy="88" r="2.5" fill="#c4390a"/>
+  <rect x="735" y="98" width="50" height="12" rx="2" fill="none" stroke="#1a1917" stroke-width="1.5"/>
+  <circle cx="742" cy="104" r="2.5" fill="#4a4845"/>
+  <rect x="735" y="114" width="50" height="8" rx="2" fill="none" stroke="#1a1917" stroke-width="1.5"/>
+  <text x="770" y="138" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">SERVER</text>
+  <text x="770" y="150" text-anchor="middle" font-size="8" fill="#4a4845">Decrypt + Classify</text>
+
+  <!-- ── BOTTOM LEGEND / DETAILS ── -->
+  <rect x="30" y="195" width="800" height="80" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1"/>
+  <text x="50" y="215" font-size="9" fill="#c4390a" letter-spacing="1.5">KEY PARAMETERS</text>
+  <!-- param grid -->
+  <text x="50" y="235" font-size="10" fill="#4a4845">LWE dimension</text>
+  <text x="165" y="235" font-size="10" fill="#1a1917" font-weight="600">n = 256</text>
+  <text x="260" y="235" font-size="10" fill="#4a4845">Modulus</text>
+  <text x="330" y="235" font-size="10" fill="#1a1917" font-weight="600">q = 7681</text>
+  <text x="430" y="235" font-size="10" fill="#4a4845">Noise σ</text>
+  <text x="490" y="235" font-size="10" fill="#1a1917" font-weight="600">3.19</text>
+  <text x="560" y="235" font-size="10" fill="#4a4845">Classical security</text>
+  <text x="670" y="235" font-size="10" fill="#1a1917" font-weight="600">128-bit</text>
+  <text x="50" y="257" font-size="10" fill="#4a4845">Feature dim</text>
+  <text x="165" y="257" font-size="10" fill="#1a1917" font-weight="600">d = 2048</text>
+  <text x="260" y="257" font-size="10" fill="#4a4845">Samples m</text>
+  <text x="330" y="257" font-size="10" fill="#1a1917" font-weight="600">1024</text>
+  <text x="430" y="257" font-size="10" fill="#4a4845">Quantum security</text>
+  <text x="540" y="257" font-size="10" fill="#1a1917" font-weight="600">72-bit (BKZ)</text>
+  <text x="650" y="257" font-size="10" fill="#4a4845">Cipher size</text>
+  <text x="740" y="257" font-size="10" fill="#1a1917" font-weight="600">~120 MB</text>
+
+  <!-- ── SECURITY LAYER ANNOTATION ── -->
+  <rect x="30" y="295" width="800" height="100" rx="4" fill="#ffffff" stroke="#e2ddd8" stroke-width="1"/>
+  <text x="50" y="315" font-size="9" fill="#c4390a" letter-spacing="1.5">THREAT MODEL &amp; TRUST BOUNDARIES</text>
+  <!-- left: camera node -->
+  <rect x="50" y="328" width="120" height="28" rx="3" fill="#faf9f7" stroke="#e2ddd8"/>
+  <text x="110" y="345" text-anchor="middle" font-size="9" fill="#4a4845">Camera Node</text>
+  <text x="110" y="357" text-anchor="middle" font-size="8" fill="#8a8780">Trusted Hardware</text>
+  <!-- mid: channel -->
+  <rect x="300" y="328" width="260" height="28" rx="3" fill="#f5e8e3" stroke="#c4390a" stroke-width="1"/>
+  <text x="430" y="345" text-anchor="middle" font-size="9" fill="#c4390a">Encrypted Ciphertext in Transit</text>
+  <text x="430" y="357" text-anchor="middle" font-size="8" fill="#c4390a">Adversary sees only (Aᵀr, bᵀr + ⌊q/2⌋μ)</text>
+  <!-- right: server -->
+  <rect x="650" y="328" width="160" height="28" rx="3" fill="#faf9f7" stroke="#e2ddd8"/>
+  <text x="730" y="345" text-anchor="middle" font-size="9" fill="#4a4845">Server (Key Holder)</text>
+  <text x="730" y="357" text-anchor="middle" font-size="8" fill="#8a8780">Trusted Compute Env.</text>
+
+  <!-- connecting lines below pipeline -->
+  <line x1="110" y1="328" x2="300" y2="342" stroke="#e2ddd8" stroke-dasharray="4,3"/>
+  <line x1="560" y1="342" x2="650" y2="342" stroke="#e2ddd8" stroke-dasharray="4,3"/>
+
+  <!-- Caption -->
+  <text x="430" y="410" text-anchor="middle" font-size="9" fill="#8a8780">Fig. 1 — End-to-end secure AI surveillance pipeline with LWE-based encryption at the edge node.</text>
+</svg>

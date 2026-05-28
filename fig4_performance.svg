@@ -1,0 +1,145 @@
+<svg viewBox="0 0 860 440" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', monospace">
+  <defs>
+    <marker id="ax" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#4a4845"/>
+    </marker>
+  </defs>
+
+  <rect width="860" height="440" fill="#faf9f7"/>
+  <text x="430" y="28" text-anchor="middle" font-size="11" fill="#c4390a" letter-spacing="2">CRYPTOGRAPHIC PERFORMANCE &amp; SECURITY TRADE-OFF</text>
+  <line x1="60" y1="38" x2="800" y2="38" stroke="#e2ddd8"/>
+
+  <!-- ═══════ LEFT PANEL: Enc/Dec Latency Bars ═══════ -->
+  <text x="200" y="58" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">OPERATION LATENCY (PYTHON PROTOTYPE)</text>
+
+  <!-- Y axis -->
+  <line x1="130" y1="70" x2="130" y2="310" stroke="#4a4845" stroke-width="1.2" marker-end="url(#ax)"/>
+  <!-- X axis -->
+  <line x1="120" y1="300" x2="360" y2="300" stroke="#4a4845" stroke-width="1.2"/>
+  <text x="365" y="303" font-size="8" fill="#4a4845">ms</text>
+
+  <!-- Y gridlines + labels -->
+  <g stroke="#e2ddd8" stroke-width="0.75" stroke-dasharray="3,3">
+    <line x1="130" y1="300" x2="360" y2="300"/>
+    <line x1="130" y1="260" x2="360" y2="260"/>
+    <line x1="130" y1="220" x2="360" y2="220"/>
+    <line x1="130" y1="180" x2="360" y2="180"/>
+    <line x1="130" y1="140" x2="360" y2="140"/>
+    <line x1="130" y1="100" x2="360" y2="100"/>
+  </g>
+  <g font-size="8" fill="#8a8780" text-anchor="end">
+    <text x="125" y="303">0</text>
+    <text x="125" y="263">300</text>
+    <text x="125" y="223">600</text>
+    <text x="125" y="183">900</text>
+    <text x="125" y="143">1200</text>
+    <text x="125" y="103">1500</text>
+  </g>
+
+  <!-- Bar data: KeyGen=15ms, Encrypt=1200ms, Decrypt=850ms -->
+  <!-- scale: 1500ms = 200px → 1ms = 0.133px, base y=300 -->
+
+  <!-- KeyGen bar -->
+  <rect x="150" y="298" width="40" height="2" rx="1" fill="#4a4845"/>
+  <text x="170" y="290" text-anchor="middle" font-size="7" fill="#4a4845">~15</text>
+  <text x="170" y="318" text-anchor="middle" font-size="8" fill="#8a8780">KeyGen</text>
+
+  <!-- Encrypt bar -->
+  <rect x="210" y="140" width="40" height="160" rx="1" fill="#c4390a"/>
+  <text x="230" y="135" text-anchor="middle" font-size="8" fill="#c4390a">1200</text>
+  <text x="230" y="318" text-anchor="middle" font-size="8" fill="#8a8780">Encrypt</text>
+
+  <!-- Decrypt bar -->
+  <rect x="270" y="187" width="40" height="113" rx="1" fill="#4a4845" opacity="0.7"/>
+  <text x="290" y="182" text-anchor="middle" font-size="8" fill="#4a4845">850</text>
+  <text x="290" y="318" text-anchor="middle" font-size="8" fill="#8a8780">Decrypt</text>
+
+  <!-- Ring-LWE reference line (goal) -->
+  <line x1="135" y1="296" x2="355" y2="296" stroke="#c4390a" stroke-width="0.75" stroke-dasharray="5,3"/>
+  <text x="356" y="294" font-size="7" fill="#c4390a">Ring-LWE</text>
+  <text x="356" y="303" font-size="7" fill="#c4390a">&lt;10 ms</text>
+
+  <!-- Legend -->
+  <rect x="135" y="330" width="10" height="10" fill="#c4390a"/>
+  <text x="150" y="340" font-size="8" fill="#4a4845">Encrypt (1 feature vector, d=2048)</text>
+  <rect x="135" y="345" width="10" height="10" fill="#4a4845" opacity="0.7"/>
+  <text x="150" y="355" font-size="8" fill="#4a4845">Decrypt</text>
+
+  <!-- ═══════ RIGHT PANEL: Security vs Latency scatter ═══════ -->
+  <text x="600" y="58" text-anchor="middle" font-size="9" fill="#8a8780" letter-spacing="1">SECURITY LEVEL vs ENCRYPTION LATENCY</text>
+
+  <!-- X axis -->
+  <line x1="420" y1="300" x2="820" y2="300" stroke="#4a4845" stroke-width="1.2" marker-end="url(#ax)"/>
+  <!-- Y axis -->
+  <line x1="430" y1="310" x2="430" y2="70" stroke="#4a4845" stroke-width="1.2" marker-end="url(#ax)"/>
+  <text x="825" y="303" font-size="8" fill="#4a4845">bits</text>
+  <text x="418" y="65" font-size="8" fill="#4a4845" text-anchor="end">ms</text>
+
+  <!-- X-axis labels (classical security bits) -->
+  <g font-size="8" fill="#8a8780" text-anchor="middle">
+    <text x="475" y="314">64</text>
+    <text x="540" y="314">96</text>
+    <text x="620" y="314">128</text>
+    <text x="700" y="314">160</text>
+    <text x="780" y="314">256</text>
+  </g>
+  <text x="620" y="326" text-anchor="middle" font-size="8" fill="#8a8780">Classical Security (bits)</text>
+
+  <!-- Y gridlines + labels -->
+  <g stroke="#e2ddd8" stroke-dasharray="3,3" stroke-width="0.75">
+    <line x1="430" y1="260" x2="810" y2="260"/>
+    <line x1="430" y1="220" x2="810" y2="220"/>
+    <line x1="430" y1="180" x2="810" y2="180"/>
+    <line x1="430" y1="140" x2="810" y2="140"/>
+    <line x1="430" y1="100" x2="810" y2="100"/>
+  </g>
+  <g font-size="8" fill="#8a8780" text-anchor="end">
+    <text x="426" y="303">0</text>
+    <text x="426" y="263">1000</text>
+    <text x="426" y="223">2000</text>
+    <text x="426" y="183">3000</text>
+    <text x="426" y="143">4000</text>
+    <text x="426" y="103">5000</text>
+  </g>
+  <text x="418" y="190" font-size="8" fill="#8a8780" text-anchor="middle" transform="rotate(-90 418 190)">Enc Latency (ms)</text>
+
+  <!-- Data points: (64bits,400ms) (96bits,750ms) (128bits★,1200ms) (160bits,1800ms) (256bits,4500ms) -->
+  <!-- x mapping: 64→475, 96→540, 128→620, 160→700, 256→780 -->
+  <!-- y mapping: 0→300, 5000→80 → scale=(300-80)/5000=0.044 → y = 300 - val*0.044 -->
+  <!-- 400ms→282, 750ms→267, 1200ms→247, 1800ms→221, 4500ms→102 -->
+
+  <!-- Trend line -->
+  <polyline points="475,282 540,267 620,247 700,221 780,102" fill="none" stroke="#e2ddd8" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- Data points -->
+  <circle cx="475" cy="282" r="5" fill="#4a4845"/>
+  <circle cx="540" cy="267" r="5" fill="#4a4845"/>
+
+  <!-- Highlighted recommended point n=256 -->
+  <circle cx="620" cy="247" r="9" fill="none" stroke="#c4390a" stroke-width="1.5"/>
+  <circle cx="620" cy="247" r="5" fill="#c4390a"/>
+  <text x="632" y="238" font-size="8" fill="#c4390a">n=256 ★</text>
+  <text x="632" y="249" font-size="8" fill="#c4390a">Recommended</text>
+
+  <circle cx="700" cy="221" r="5" fill="#4a4845"/>
+  <circle cx="780" cy="102" r="5" fill="#4a4845"/>
+
+  <!-- Labels for each point -->
+  <text x="470" y="273" font-size="7" fill="#4a4845" text-anchor="middle">400 ms</text>
+  <text x="540" y="258" font-size="7" fill="#4a4845" text-anchor="middle">750 ms</text>
+  <text x="700" y="212" font-size="7" fill="#4a4845" text-anchor="middle">1800 ms</text>
+  <text x="780" y="93" font-size="7" fill="#4a4845" text-anchor="middle">4500 ms</text>
+
+  <!-- Quantum security dashed line -->
+  <text x="440" y="232" font-size="7" fill="#8a8780" transform="rotate(-18 440 232)">→ quantum security ≈ ½ classical</text>
+
+  <!-- Separator -->
+  <line x1="400" y1="50" x2="400" y2="395" stroke="#e2ddd8"/>
+
+  <!-- ═══════ BOTTOM CIPHERTEXT SIZE NOTE ═══════ -->
+  <rect x="60" y="375" width="740" height="48" rx="3" fill="#ffffff" stroke="#e2ddd8"/>
+  <text x="80" y="393" font-size="9" fill="#c4390a" letter-spacing="1">CIPHERTEXT EXPANSION (n=256, d=2048)</text>
+  <text x="80" y="410" font-size="9" fill="#4a4845">Plain LWE: d × (n+1) × ⌈log₂q⌉ ≈ 2048 × 257 × 13 bits ≈ 120 MB   |   Ring-LWE (Kyber): ~120 KB  (1000× reduction via NTT polynomial arithmetic)</text>
+
+  <text x="430" y="432" text-anchor="middle" font-size="9" fill="#8a8780">Fig. 4 — Left: per-operation latency (Python prototype). Right: security–latency trade-off across parameter sets.</text>
+</svg>
